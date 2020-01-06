@@ -1,0 +1,60 @@
+\chapter{Discussion}
+
+\section{Detector}
+
+\subsection{Electron Calibration}
+The linearity of the multichannel analyser's voltage response is attested by the agreement of the calibration data with a straight line fit (Figure \ref{fig:calibration}). The fitted line equation gives a conversion equation of:
+\begin{equation}
+    n_{e} = (2030\pm20)Ch
+\end{equation}
+Where n\textsubscript{e} is the number of collected electrons and Ch is the channel number. Two models were tested and the model with no constant was chosen due to its theoretical grounding whilst the fitted constant parameter was dominated by uncertainty in the other.
+
+The dominating uncertainty in the plot is the uncertainty resulting from pulse amplitude. This is incorporated in the uncertainty of the calibration equation and will be carried forward when the equation is used in future calculations.
+
+\subsection{Voltage Run}
+
+Both voltage scans with \textsuperscript{55}Fe and \textsuperscript{241}Am, proved to be well described by an exponential model. At lower voltages the data points for both \textsuperscript{55}Fe and \textsuperscript{241}Am appear to stray from the trend line. This could be because at low voltages the detector moves out of the proportional region.
+
+The datapoints with lower number of detected electrons have strikingly large errorbars. This is due to the fact that the graph's scale is logarithmic and these points have an error contribution which stays constant due to the spec amp, which is justified in Chapter \ref{sec:mthd:voltageRun}. Hence these errors are far more significant for smaller measured numbers of detected electrons.
+
+\subsection{Multiplication Factor}
+
+Plotting the multiplication factor for the \textsuperscript{55}Fe and \textsuperscript{241}Am sources on the same axis as that predicted by the Diethorn formula shows a very good agreement between the measured and theoretical results. All measured values fall within the range of uncertainty associated with the Diethorn formula, suggesting that the standard conditions for gas multiplication are met with this detector, such as a cylindrical magnetic field and a pure fill gas.
+
+Again, the errorbars for lower multiplication factors are very large due to error propagation from the voltage run.
+
+\subsection{Energy Resolution}
+
+The energy resolution of the main photopeak for \textsuperscript{55}Fe and \textsuperscript{241}Am is (17.2$\pm$0.5)\% and (7.3$\pm$0.2)\% respectively. The energy resolution is much worse for \textsuperscript{55}Fe because the main photopeak is a superposition of two peaks which causes its FWHM to be much wider than if it where a single emission line like for \textsuperscript{241}Am.
+
+Energy resolution follows a model of the form:
+\begin{equation}
+    \frac{E_{res}}{2.355} = \frac{\big( \sigma E \big)}{E} = \frac{a}{\sqrt{E}}+\frac{b}{E}+c
+\end{equation}
+Where $a$ is the detector dependent term and defines the intrinsic detector resolution, $b$ is the noise term and relates to the electronic noise, and $c$ is a constant term arising from the non-homogeneities such as geometry, calibration and energy leakage.
+It can be seen from Figures \ref{fig:EResVsVFe} and \ref{fig:EResVsVAm} that energy resolution has a weak negative correlation with the applied voltage. Electronic noise and non-homogenities are unlikely to decrease with applied voltage, which implies intrinsic detector resolution improves with applied voltage.
+
+\subsection{Spectra}
+
+The spectrum for \textsuperscript{55}Fe was fitted extremely well by a three Gaussian model plus the background. However, the K$_{\alpha(1,2)}$ peak is approximately 5.7 times larger than the K$_{\beta(1,2)}$ peak, which is not supported by the relative intensities given by the decay tables which suggests a ratio of approximately 10 \cite{decay_modes}.
+
+The spectrum for \textsuperscript{241}Am was far more complex with a relatively high background trailing the 59.54keV peak. This is due to both Compton scattering losses and electrons hitting the chamber walls before imparting all their energy, resulting in a reading with a lower energy than the original photon. This phenomenon would be reduced by building the detector with a greater volume however this may lead to quenching as discussed in Chapter \ref{sec:intr:fillGases}.
+
+\subsection{Energy Calibration}
+
+Fitting a linear model to the data in Figure \ref{fig:energyCalibration} gives a calibration equation of:
+\begin{equation}
+    E = (0.1235\pm0.0003)Ch + (1.01\pm0.01) \  [keV]
+\end{equation}
+
+Using this equation, the energies of peaks 4, 5, 6 and 7 were found (\ref{tbl:energyCalibration}), allowing their emission process to be identified.
+
+Peak 5 was found to have an energy of (17.5$\pm$0.1)keV, this means it falls within the range of energies expected from the L$_{\beta}$ emission mechanism of (16.13-17.79)keV. Peak 6 was found to have an energy of (21.15$\pm$0.04)keV, this means it falls within the range of energies expected from the L$_{\gamma}$ emission mechanism of (20.12-22.20)keV. The FWHM of peaks 5 and 6 are (2.2$\pm$0.1)keV and (4.2$\pm$0.2) respectively which further supports attributing them to L$_{\beta}$ and L$_{\gamma}$. This is because the range of energies of the L$_{\beta}$ mechanism is approximately double that of L$_{\gamma}$ as is the case with the FWHM of peaks 5 and 6.
+
+Peak 7 was found to have an energy of (26.37$\pm$0.09)keV. This means it can be attributed to the $\gamma_{2,1}$ emission mechanism which has a well defined energy of 26.34keV, which falls within the measured value's range of uncertainty.
+
+Peak 4 was found to have an energy of (10.78$\pm$0.05)keV with a FWHM of (4.9$\pm$0.2). Upon close inspection of the spectrum it appears as though it may be a split peak. Fitting two Gaussian curves may have shifted this energy up to align with the $\gamma_{10,9}$ peak, or fall within the L$_{\alpha}$ range of energies, however there would still be one unknown peak left.
+
+\section{Preamplifier}
+
+The expected gain was 46.8 and it was measured on the oscilloscope as (45$\pm$2), thus falling within the acceptable range of uncertainty. This suggests that the device was working as it should, which was then proved when the spectrum of \textsuperscript{55}Fe was measured. The spectral features were clear, despite the worsened energy resolution of (23.7$\pm$0.2)\% compared to (17.2$\pm$0.5)\% of the ORTEC.

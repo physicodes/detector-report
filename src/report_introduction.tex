@@ -1,0 +1,65 @@
+\chapter{Introduction}
+
+\section{Radiation}
+
+Radiation is a propagation of energy through a medium. Non-ionising radiation does not interact with its surroundings, however high frequency photons and charged particles do. This is called ionising radiation referring to its ability to ionize atoms and molecules.
+
+\subsection{Radiation Sources} \label{sec:intr:radiationSources}
+
+The two radiation sources used in the lab were Iron-55 (\textsuperscript{55}Fe) and Americium-241 (\textsuperscript{241}Am) which have half-lives of 2.7 and 432.2 years respectively\cite{half_lives}.
+
+\textsuperscript{55}Fe decays via electron capture to \textsuperscript{55}Mn in an excited state\cite{decay_modes}. As it relaxes it radiates gamma radiation. It has a characteristic K\textsubscript{$\alpha$(1,2)} and K\textsubscript{$\beta$(1,2)} peak which have energies of 5.89keV and 6.49keV respectively \cite{detailedDecayFe}, though they often appear as a single peak at 5.9keV due to resolution limitations.
+
+\textsuperscript{241}Am decays via alpha-decay to \textsuperscript{237}Np\cite{decay_modes}, however the alpha particles cannot penetrate the detector walls. In addition to the alpha radiation, a spectrum of gamma rays is emitted with a dominant peak at 59.54keV \cite{detailedDecayAm}.
+
+\subsection{Radiation Interactions}
+
+Photons ionise their surrounding medium via several different processes, each dominating at a different energy range \cite{sauli_book}. At low energies, photons can scatter without exciting or ionising atoms so there is no energy transfer. Up to hundreds of keV, photoelectric absorption dominates. This is where a photon is absorbed by an orbital electron, giving the electron kinetic energy. If this is greater than the electron's binding energy then it escapes the atom. If not, the electron goes up in energy level and emits photons as it falls back down again. When photoelectric absorption dominates, the intensity of incoming photon radiation will attenuate but the energy stays unchanged \cite{knoll_book}. Compton scattering dominates up to a few MeV. This is where photons collide inelastically with orbital electrons, imparting some of their energy to the electron and changing their direction of travel. Above 1022keV, pair production dominates. This is where a photon spontaneously turns into an electron-positron pair in the vicinity of a nucleus, turning 1022keV into the mass of two electrons. The residual energy gives the new particles kinetic energy.
+
+Unlike photons, charged particles lose energy all the way along their path, though they lose most right at the end of their trajectory. The way alpha particles ionise can be described by the Bethe formula which gives the stopping power of charged particles. Particles ionised along this path can have enough energy to ionise yet more neutral atoms, resulting in delta electrons. The same is true of electrons, however correction terms must be implemented due to their small mass and energy losses by Bremsstrahlung.
+
+\section{Gas Detectors}
+
+The basic principle of a radiation detector is that the radiation interacts with the detector in some measurable way. For gas detectors, the result of this interaction is always the creation of electron-ion pairs within the detector’s active volume. In order to measure these charges, an electric field is applied over the detector’s active volume, which causes the electrons and ions to drift in opposite directions, preventing ion recombination and resulting in a measurable current.
+
+There are two main modes of detector operation: pulse mode and current mode. In pulse mode, each ionisation event is measured as a single pulse. This means the timing and energy of each event is preserved in measurement, however if the event rate is too high, the pulses may begin to overlap. In this case it is better to use current mode whereby the total collected charge is integrated over a chosen time period such that a direct current is measured.
+
+\subsection{Proportional Counters}
+
+The proportional counter is a type of gas-filled detector first designed by Rutherford and Geiger in 1908 \cite{original_design}. Proportional counters are almost always operated in pulse mode. They rely on gas multiplication to amplify the charge created when the radiation initially ionises the gas. Hence pulses from proportional counters have a greater amplitude those from ion chambers (which do not make use of gas multiplication) for the same ionisation event. Each pulse is passed to a preamplifier which modifies the shape and amplitude of the signal.
+
+\subsection{Gas Multiplication}
+
+When ion pairs are produced in a gas detector, the electrons and ions drift to the anode and cathode respectively due to the applied electric field. Over this path they encounter collisions with neutral gas atoms. If the electric field is small they do not have enough energy to ionise these neutral gas atoms. When the electric field is large the electrons gain a lot of kinetic energy due to their low masses. At a certain threshold field the electrons will gain enough energy to ionise the neutral gas atoms resulting in more ion pairs. These secondary electrons will also be accelerated in the field resulting in even more ion pairs. In this way, the total number of electrons increases exponentially until they have all been collected at the anode, amplifying the collected charge by a factor of many thousands \cite{gas_multiplication}. This process is known as a Townsend avalanche and the fractional increase in the number of electrons per unit length is given by the Townsend equation, where $\alpha$ is the Townsend coefficient \cite{knoll_book}:
+
+\begin{equation}
+\frac{dn}{n} = \alpha\,dx
+\end{equation}
+
+In the gas multiplication process, the number of electrons collected at the anode is proportional to the number of initial ions. As the applied voltage is increased, the ratio of collected electrons to initial ions increases. However, for each secondary electron produced an ion is also produced. Ions have a much lower mobility than electrons so take longer to reach the cathode and form a space charge within the detector. This warps the electric field and as a result, the number of collected electrons is no longer proportional to the number of initial ions. Hence the detector has a limited region of proportionality where the field is large enough to cause secondary ionisation, but not so high that a space charge develops in the detector.
+
+The gas multiplication factor M is defined as
+\begin{equation}
+    Q = n_{0}eM
+\end{equation}
+where Q is the measured charge and n\textsubscript{0} is the initial number of ions, given by:
+\begin{equation}
+    n_{0} = \frac{E_{rad}}{W}
+    \label{eqn: n_0}
+\end{equation}
+where W is the energy required to produce one ion pair in the fill gas. This can also be written in terms of the Townsend coefficient:
+\begin{equation}
+\ln{M} = \int_{a}^{r_{c}} \alpha(r) dr
+\end{equation}
+
+Using the expression for the shape of the electric field in cylindrical geometry and assuming linearity between $\alpha$ and electric field, Diethorn derived the following expression for M \cite{diethorn_eqn}:
+\begin{equation} \label{eqn:Diethorn}
+\ln{M} = \frac{V}{\ln{(b/a)}} \cdot \frac{\ln{2}}{\Delta V} \Bigg(\ln{\frac{V}{pa\ln{(b/a)}} - \ln{K}}\Bigg)
+\end{equation}
+Where p is pressure and $\Delta$V and K are constants characteristic of the fill gas. As a result of this assumption the Diethorn equation only holds in the detectors region of proportionality.
+
+\subsection{Fill Gases} \label{sec:intr:fillGases}
+
+The basic operation of gas detectors requires that any electrons formed in its active region are collected at the anode. We therefore wish to avoid gases with positive electron affinities as it is energetically favourable for them to accept electrons, thus reducing the number that reach the anode. This essentially leaves only the noble gases. The fill gas must be very pure as even very small levels of electronegative impurities can result in a big reduction in signal \cite{knoll_book}.
+
+Not all collisions result in secondary electrons. On occasion, orbital electrons are excited, but not enough to escape the atom, and relax via the emission of a visible or UV photon. These de-excitation photons can then interact with the detector walls via the photoelectric effect producing spurious pulses, or ionise other neutral gas atoms resulting in a loss of proportionality. This is known as ‘quenching’ however this effect can be supressed by adding a ‘quench gas’ such as methane, which preferentially absorbs these photons.

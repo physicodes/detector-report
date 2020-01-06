@@ -1,0 +1,366 @@
+\documentclass[a4paper, twoside, 11pt]{report}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LINE SPACING
+\newcommand{\linespacing}{1.5}
+\renewcommand{\baselinestretch}{\linespacing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY STYLE
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{bib.bib}
+\usepackage{csquotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OTHER FORMATTING/LAYOUT DECLARATIONS
+% Allows me to comment blocks of code
+\usepackage{verbatim}
+% Graphics
+\usepackage{graphicx,color}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{epstopdf}
+\usepackage[british]{babel}
+% The left-hand-side should be 40mm.  The top and bottom margins should be
+% 25mm deep.  The right hand margin should be 20mm.
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=4cm,right=2cm,headsep=13pt]{geometry}
+\flushbottom
+\setlength{\headheight}{13.6pt}
+% Pages should be numbered consecutively thorugh the main text.  Page numbers
+% should be located centrally at the top of the page.
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{
+	\fancyhf{}
+	% Add "DRAFT: <today's date>" to header (comment out the following to remove)
+	%\lhead{\textit{DRAFT: \today}}
+	%
+	\chead{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+}
+\pagestyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HYPERREF
+\usepackage[colorlinks,pdfusetitle,urlcolor=black,citecolor=black,linkcolor=black,bookmarksnumbered,plainpages=false]{hyperref}
+% For print version, use this instead:
+%\usepackage[pdfusetitle,bookmarksnumbered,plainpages=false]{hyperref}
+%\usepackage{backref}
+%\renewcommand{\backrefpagesname}{Cited on}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN DOCUMENT
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PREAMBLE: roman page numbering i, ii, iii, ...
+\pagenumbering{roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TITLE PAGE: The title page should give the following information:
+%%	(i) the full title of the thesis and the sub-title if any;
+%%	(ii) the full name of the author;
+%%	(iii) the qualification aimed for;
+%%	(iv) the name of the University of Sussex;
+%%	(v) the month and year of submission.
+\thispagestyle{empty}
+
+%\pagebreak
+\hspace{0pt}
+\vfill
+
+\begin{center}
+% TITLE
+\Huge\textbf{Beverage Can Particle Detector}
+\vskip2mm
+% SUBTITLE (optional)
+\LARGE\textit{Proportional Counter From Commonly Found Objects}
+\vskip5mm
+% AUTHOR
+\LARGE\textbf{Joshua Read}
+\normalsize
+\end{center}
+
+\vfill
+\hspace{0pt}
+
+\vfill
+\begin{flushleft}
+% Date
+Measurements taken: \hspace{6.28mm} 7th December, 2017 \\
+Handed in: \hspace{26.1mm} 2nd January, 2018 \\
+Returned with corrections: 24th January, 2018\\
+\vskip5mm
+\end{flushleft}	
+\begin{center}
+    % UNIVERSITY
+\large\textit{PAP328: Laboratory Course On Instrumentation \hspace{19mm} University of Helsinki}
+\end{center}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DECLARATIONS
+\begin{comment}
+\chapter*{Declaration}
+I hereby declare that this thesis has not been and will not be submitted in whole or in part to another University for the award of any other degree.
+	
+% ADDITIONAL DECLARATIONS HERE (IF ANY)
+
+\vskip5mm
+Signature:
+\vskip20mm
+% AUTHOR
+Joe Bloggs
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUMMARY PAGE
+\begin{comment}
+\thispagestyle{empty}
+\newpage
+\null\vskip10mm
+\begin{center}
+\large
+\underline{UNIVERSITY OF SUSSEX}
+\vskip20mm
+% AUTHOR, QUALIFICATION
+\textsc{Joe Bloggs, Doctor of Philosophy}
+\vskip20mm
+% TITLE
+\underline{\textsc{My Theory of Everything}}
+\vskip0mm
+% SUBTITLE (optional)
+\underline{\textsc{How it all works}}
+\vskip20mm
+\underline{\textsc{Summary}}
+\vskip2mm
+\end{center}
+% Change line spacing
+\renewcommand{\baselinestretch}{1.0}
+\small\normalsize
+% SUMMARY HERE (300 word limit for most subjects):
+
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGEMENTS
+\begin{comment}
+\chapter*{Acknowledgements}
+\renewcommand{\baselinestretch}{\linespacing}
+\small\normalsize
+% ACKNOWLEDGEMENTS HERE:
+
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+
+\input{report_abstract.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLE OF CONTENTS, LISTS OF TABLES & FIGURES
+\newpage
+\pdfbookmark[0]{Contents}{contents_bookmark}
+\tableofcontents
+%\listoftables
+%\phantomsection
+%\addcontentsline{toc}{chapter}{List of Tables}
+%\listoffigures
+%\phantomsection
+%\addcontentsline{toc}{chapter}{List of Figures}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN THESIS TEXT: arabic page numbering 1, 2, 3, ...
+\newpage
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCTION
+
+\input{report_introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% METHOD
+
+\input{report_method}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESULTS
+
+\input{report_results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISCUSSION
+
+\input{report_discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSION
+
+\input{report_conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\printbibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START APPENDICES
+\clearpage
+\phantomsection
+\appendix
+\addcontentsline{toc}{chapter}{Appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Electron Calibration}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{electronCalibrationData.png}
+  \caption{The peaks measured in order to determine the relationship between detected charge and the channel it is registered in. These peaks were measured and compiled in \ref{tbl:electronCalibrationData}.}
+  \label{fig:electronCalibrationData}
+\end{figure}
+
+\begin{table} \centering
+  \begin{tabular}{lll}
+    \hline
+    \hline
+    Pulse Amplitude [mV]     & Channel Centre       & FWHM \\ \hline
+    9.7$\pm$0.2   & 26$\pm$3  & 2.52 \\
+    19.6$\pm$0.2  & 58$\pm$3  & 2.32 \\
+    29.7$\pm$0.2  & 89$\pm$3  & 2.33 \\
+    40.4$\pm$0.3  & 122$\pm$3 & 2.25 \\
+    50.2$\pm$0.3  & 152$\pm$3 & 2.25 \\
+    60.0$\pm$0.3  & 185$\pm$8 & 2.29 \\
+    69.4$\pm$0.4  & 213$\pm$3 & 2.37 \\
+    79.8$\pm$0.5  & 245$\pm$3 & 2.25 \\
+    91$\pm$1      & 279$\pm$3 & 2.43 \\
+    99.4$\pm$0.5  & 306$\pm$3 & 2.28 \\
+    110.0$\pm$0.9 & 342$\pm$3 & 2.46 \\
+    119.0$\pm$0.5 & 370$\pm$3 & 2.32 \\
+    130$\pm$1     & 406$\pm$2 & 2.30 \\
+    140$\pm$1     & 435$\pm$3 & 2.26 \\
+    150$\pm$1     & 465$\pm$3 & 2.32 \\ \hline \hline
+  \end{tabular}
+  \caption{Table containing the data used for the electron calibration graph, measured using the spectrum software.}
+  \label{tbl:electronCalibrationData}
+\end{table}
+
+\chapter{Voltage Runs}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{voltageRunData.png}
+  \caption{Plot of example spectra, at a range of bias voltages with amplifier gain of 100. These spectra have been normalised.}
+  \label{fig:voltageRunData}
+\end{figure}
+
+\begin{table}[]
+\centering
+\begin{tabular}{llll}
+\hline \hline
+Anode Bias {[}V{]} & Gain & Channel Centroid & FWHM \\ \hline
+1520$\pm$4               & 100  & 70      $\pm$ 2           & 19   \\
+1570$\pm$4               & 100  & 101              $\pm$ 1           & 24   \\
+1622$\pm$4               & 100  & 147              $\pm$ 2           & 28   \\
+1670$\pm$5               & 100  & 211              $\pm$ 1           & 40   \\
+1720$\pm$5               & 100  & 306              $\pm$ 2           & 55   \\
+1770$\pm$5               & 100  & 456.9            $\pm$ 0.8         & 67.0 \\
+1770$\pm$5               & 40   & 179              $\pm$ 1           & 36   \\
+1821$\pm$5               & 40   & 268              $\pm$ 1           & 51   \\
+1871$\pm$5               & 40   & 391              $\pm$ 1           & 76   \\
+1871$\pm$5               & 20   & 189              $\pm$ 1           & 37   \\
+1920$\pm$5               & 20   & 281              $\pm$ 1           & 54   \\
+1920$\pm$5               & 10   & 135              $\pm$ 1           & 27   \\
+1969$\pm$5               & 10   & 200              $\pm$ 2           & 36   \\
+2020$\pm$6               & 10   & 301              $\pm$ 2           & 52   \\
+2020$\pm$6               & 4    & 122              $\pm$ 1           & 24   \\
+2069$\pm$6               & 4    & 183              $\pm$ 2           & 35   \\
+2120$\pm$6               & 4    & 283              $\pm$ 2           & 51   \\
+2169$\pm$6               & 4    & 423              $\pm$ 2           & 68   \\
+2169$\pm$6               & 2    & 206              $\pm$ 2           & 37   \\
+2220$\pm$6               & 2    & 314              $\pm$ 2           & 52  \\ \hline \hline
+\end{tabular}
+\caption{Data measured when performing the voltage run with the \textsuperscript{55}Fe source.}
+\label{tbl:feRun}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{llll}
+\hline \hline
+Anode Bias {[}V{]} & Gain & Channel Centroid & FWHM \\ \hline
+1173$\pm$3               & 100  & 77               $\pm$ 4           & 9    \\
+1235$\pm$3               & 100  & 111              $\pm$ 3           & 13   \\
+1285$\pm$4               & 100  & 153              $\pm$ 3           & 14   \\
+1335$\pm$4               & 100  & 212              $\pm$ 3           & 16   \\
+1385$\pm$4               & 100  & 293              $\pm$ 4           & 19   \\
+1435$\pm$4               & 100  & 411              $\pm$ 3           & 30   \\
+1435$\pm$4               & 40   & 161              $\pm$ 3           & 14   \\
+1485$\pm$4               & 40   & 230              $\pm$ 3           & 18   \\
+1536$\pm$4               & 40   & 328              $\pm$ 3           & 23   \\
+1536$\pm$4               & 20   & 157              $\pm$ 3           & 11   \\
+1585$\pm$4               & 20   & 226              $\pm$ 4           & 15   \\
+1635$\pm$4               & 20   & 327              $\pm$ 3           & 23   \\
+1635$\pm$4               & 10   & 156              $\pm$ 3           & 13   \\
+1685$\pm$5               & 10   & 225              $\pm$ 3           & 18   \\
+1735$\pm$5               & 10   & 331              $\pm$ 4           & 21   \\
+1735$\pm$5               & 4    & 131              $\pm$ 3           & 11   \\
+1785$\pm$5               & 4    & 192              $\pm$ 3           & 14   \\
+1835$\pm$5               & 4    & 289              $\pm$ 4           & 19   \\
+1835$\pm$5               & 2    & 137              $\pm$ 3           & 11   \\
+1885$\pm$5               & 2    & 205              $\pm$ 4           & 14   \\
+1935$\pm$5               & 2    & 304              $\pm$ 4           & 21   \\
+1985$\pm$5               & 2    & 447              $\pm$ 5           & 25   \\ \hline \hline
+\end{tabular}
+\caption{Data measured when performing the voltage run with the \textsuperscript{241}Am source.}
+\label{tbl:amRun}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END DOCUMENT
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
